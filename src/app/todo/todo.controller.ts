@@ -15,6 +15,7 @@ import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { MakeSwagger } from 'src/swagger/swagger.config';
+import { IndexTodoSwagger } from 'src/swagger/ResponseSwagger/index-todo.swagger';
 
 @Controller('api/v1/todos')
 @ApiTags('Todos')
@@ -29,7 +30,8 @@ export class TodoController {
     }, responses: [
       {
         status: HttpStatus.OK,
-        description: 'List of all tasks'
+        description: 'List of all tasks',
+        type: IndexTodoSwagger
       }
     ]
   })
