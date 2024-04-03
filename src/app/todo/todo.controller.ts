@@ -19,6 +19,8 @@ import { IndexTodoSwagger } from 'src/swagger/ResponseSwagger/index-todo.swagger
 import { CreateTodoSwagger } from 'src/swagger/ResponseSwagger/create-todo.swagger';
 import { ShowTodoSwagger } from 'src/swagger/ResponseSwagger/show-todo.swagger';
 import { UpdateTodoSwagger } from 'src/swagger/ResponseSwagger/update-todo.swagger';
+import { BadRequestSwagger } from 'src/swagger/helpers/bad-request.swagger';
+import { NotFoundSwagger } from 'src/swagger/helpers/not-found.swagger';
 
 @Controller('api/v1/todos')
 @ApiTags('Todos')
@@ -59,6 +61,7 @@ export class TodoController {
       {
         status: HttpStatus.BAD_REQUEST,
         description: 'Params invalid',
+        type: BadRequestSwagger
       },
     ],
   })
@@ -81,6 +84,7 @@ export class TodoController {
       {
         status: HttpStatus.NOT_FOUND,
         description: 'Task not found',
+        type: NotFoundSwagger
       },
     ],
   })
@@ -103,6 +107,12 @@ export class TodoController {
       {
         status: HttpStatus.BAD_REQUEST,
         description: 'Task not found',
+        type: NotFoundSwagger
+      },
+      {
+        status: HttpStatus.NOT_FOUND,
+        description: 'invalid data',
+        type: BadRequestSwagger
       },
     ],
   })
@@ -127,6 +137,7 @@ export class TodoController {
       {
         status: HttpStatus.NOT_FOUND,
         description: 'Task not found',
+        type: NotFoundSwagger
       },
     ],
   })
